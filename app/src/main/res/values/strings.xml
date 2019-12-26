@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Profile</string>
+    <string name="tournament">TOURNAMENT</string>
+    <string name="fighter_psht">FIGHTER / PSHT</string>
 </resources>

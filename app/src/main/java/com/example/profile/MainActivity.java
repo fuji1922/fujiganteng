@@ -2,21 +2,33 @@ package com.example.profile;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    TextView t;
+    ImageButton setting;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        t= (TextView) findViewById(R.id.myPict);
-        Typeface myCustomFont=Typeface.createFromAsset(getAssets(),"fonts/Lora-Regular.ttf");
-        t.setTypeface(myCustomFont);
+        setting = findViewById(R.id.setting);
+
+        setting.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.setting){
+            Intent intent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
+            startActivity(intent);
+        }
     }
 }
